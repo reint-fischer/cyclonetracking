@@ -250,13 +250,13 @@ class cyclonetrack:
             "radius":center.radius(), "depth":center.depth(),\
             "DsqP":center.DsqP,"type":center.type, "centers":center.centerCount(),\
             "Ege":Etype,"Erg":0,"Ely":0,"Esp":0,"Emg":0,"ptid":ptid},])
-        self.data = self.data.append(row0, ignore_index=1, sort=1)
+        self.data = pd.concat([self.data,row0], ignore_index=True, sort=True)
         
         # Create Events Data Frame
         self.events = pd.DataFrame()
         event0 = pd.DataFrame([{"time":center.time,"id":center.id,"event":"ge",\
             "Etype":Etype,"otid":np.nan,"x":center.x,"y":center.y},])
-        self.events = self.events.append(event0, ignore_index=1, sort=1)
+        self.events = pd.concat([self.events,event0], ignore_index=True, sort=True)
     
     ###############
     # Append Data #
@@ -285,7 +285,7 @@ class cyclonetrack:
             "Dp":Dp, "Dx":Dx, "Dy":Dy, "u":u, "v":v, "uv":uv, "DpDt":DpDt, "ptid":ptid,\
             "Ege":0,"Ely":0,"Esp":0,"Emg":0,"Erg":0},])
         
-        self.data = self.data.append(row, ignore_index=1, sort=1)
+        self.data = pd.concat([self.data,row], ignore_index=True, sort=True)
     
     def removeInstance(self,time):
         '''Removes an instance from the main data frame and the events data 
@@ -320,7 +320,7 @@ class cyclonetrack:
         '''
         row = pd.DataFrame([{"time":time,"id":center.id,"event":event,\
             "Etype":Etype,"otid":otid,"x":center.x,"y":center.y},])
-        self.events = self.events.append(row, ignore_index=1, sort=1)
+        self.events = pd.concat([self.events,row], ignore_index=True, sort=True)
         
         # Event Booleans for Main Data Frame
         if event == "ge":
@@ -1766,10 +1766,7 @@ def findCenters(field, mask, kSize=3, nanthreshold=0.5, d_slp=0, d_dist=100, yDi
         if (mean_gradient < d_grad):
             sysMin[rowMin[sm],colMin[sm]] = 0
     
-        # Save centers
-        fieldCenters = sysMin
-    
-    return fieldCenters
+    return sysMin
 
 '''###########################
 Identify the Areas Associated with Special Minima of a Surface
