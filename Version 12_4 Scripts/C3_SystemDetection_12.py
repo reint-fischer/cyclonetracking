@@ -32,7 +32,7 @@ Set up Environment
 print("Setting up environment.")
 subset = "" # use "" if performing on all cyclones
 
-inpath = "/Volumes/Cressida/CycloneTracking/tracking12_4TestTracks/"+subset
+inpath = "~/Documents/UMD/Assistantship/POLARA/data/CycloneTracking/tracking12_4TestTracks/" #"/Volumes/Cressida/CycloneTracking/tracking12_4TestTracks/"+subset
 outpath = inpath
 
 '''*******************************************
