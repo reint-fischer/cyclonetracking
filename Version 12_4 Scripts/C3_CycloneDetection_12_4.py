@@ -42,10 +42,10 @@ Set up Environment
 print("Setting up environment")
 path = "~/Documents/UMD/Assistantship/POLARA/data"
 dataset = "ERA5"
-reprodir = "Cyclones_100km"
+reprodir = "Cyclones_25km"
 verd = "12_4Test" # Detection Version
 vert = 'Tracks' # Tracking Version
-spres = 100 # Spatial resolution (in km)
+spres = 25 # Spatial resolution (in km)
 
 inpath = path+"/"+reprodir #+"/SLP_EASE2_N0_"+str(spres)+"km"
 outpath = path+"/CycloneTracking"

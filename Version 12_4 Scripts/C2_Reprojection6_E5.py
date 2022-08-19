@@ -46,8 +46,8 @@ timestep = 6 # in hours
 startdate = [1900,1,1] # The starting date for the reanalysis time steps
 
 # Inputs for reprojection
-xsize, ysize = 100000, -100000 # in meters
-nx, ny = 180, 180 # number of grid cells; use 180 by 180 for 100 km grid
+xsize, ysize = 25000, -25000 # in meters
+nx, ny = 720, 720 # number of grid cells; use 180 by 180 for 100 km grid
 
 # Path Variables
 path = "../../UMD/Assistantship/POLARA/data"
